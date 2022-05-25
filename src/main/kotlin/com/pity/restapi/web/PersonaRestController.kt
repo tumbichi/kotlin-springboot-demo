@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping(Constants.URL_BASE_PERSONAS)
 class PersonaRestController {
-
     @Autowired
     val personaBusiness: IPersonaBusiness? = null
 
+    @CrossOrigin(origins = ["http://localhost:3000", "http://18.223.21.235:3000"])
     @GetMapping("")
     fun list():ResponseEntity<List<Persona>>  {
         return try {
@@ -27,6 +27,7 @@ class PersonaRestController {
         }
     }
 
+    @CrossOrigin(origins = ["http://localhost:3000", "http://18.223.21.235:3000"])
     @GetMapping("/{id}")
     fun load(@PathVariable("id") idPersona:Long): ResponseEntity<Persona>{
         return try {
@@ -38,6 +39,7 @@ class PersonaRestController {
         }
     }
 
+    @CrossOrigin(origins = ["http://localhost:3000", "http://18.223.21.235:3000"])
     @PostMapping("")
     fun insert(@RequestBody persona: Persona): ResponseEntity<Any>{
         return try {
@@ -50,6 +52,7 @@ class PersonaRestController {
         }
     }
 
+    @CrossOrigin(origins = ["http://localhost:3000", "http://18.223.21.235:3000"])
     @PutMapping("")
     fun update(@RequestBody persona: Persona): ResponseEntity<Any>{
         return try{
@@ -60,6 +63,7 @@ class PersonaRestController {
         }
     }
 
+    @CrossOrigin(origins = ["http://localhost:3000", "http://18.223.21.235:3000"])
     @DeleteMapping("/{id}")
     fun delete(@PathVariable("id") idPersona: Long): ResponseEntity<Any>{
         return try {
